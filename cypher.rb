@@ -1,20 +1,38 @@
 # Simple encryption for conversations
 # using the ord method
-encrypt_message =[]
+code =[]
+$LETTERS = ("a".."z").each.with_index(1).to_h
 $CC_LOCK = 3
-puts "B".ord
-puts "b".ord
+
+def n_loop(chr)
+  num = chr.downcase.ord - 96 + $CC_LOCK
+  # if z => 26 + 3
+
+  if num > 26
+    num -= $CC_LOCK
+    $CC_LOCK.times  do
+      num += 1
+      if num>26 
+        num = 1
+      end
+    end
+  end
+  return num
+end
+
 print ("Enter your secret message here > ")
 message = gets.chomp
 
 message.split("").each do |chr|
-  if chr.match(/\A[a-z]\Z/)
-    encrypt_message.push((chr.ord + $CC_LOCK).chr)
-  else
-    encrypt_message.push(chr)
+  if chr.is_a?(String) && chr.downcase.match?(/\A[a-z]\z/)
+    code.push(chr == chr.upcase ? ($LETTERS.key(n_loop(chr))).upcase
+    : $LETTERS.key(n_loop(chr)))
+  else code.push(chr)
   end
 end
-puts encrypt_message.join('')
+
+puts code.join('')
+
 # $CC_LOCK= 5
 # $LETTERS = ("a".."z").each.with_index(1).to_h
 
