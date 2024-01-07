@@ -25,7 +25,7 @@ class CeaserCypher
     code = []
     message.split('').each do |chr|
       if chr.is_a?(String) && chr.downcase.match?(/\A[a-z]\z/)
-        decoded = LETTERS.key(convert_chr_back(chr)) # retrive the chr
+        decoded = LETTERS.key(convert_chr_back(chr))
         code << (chr == chr.upcase ? decoded.upcase : decoded)
       else
         code << chr
@@ -38,7 +38,7 @@ class CeaserCypher
 
   def display_message(message)
     message.join('')
-    
+
   end
 
   def convert_chr(chr)
