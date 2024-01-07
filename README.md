@@ -12,5 +12,6 @@ Build a ceaser cypher that takes a string and returns the encrypted message. (Bo
 | encrypt      | returns the encrypted messaged. It can be passed a second argument to change the encryption key                                                                 |
 
 ## note
+- use 'rspec' in the root directory to run the tests XD although, all should pass
 
  
