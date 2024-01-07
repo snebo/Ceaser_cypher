@@ -16,7 +16,7 @@ class CeaserCypher
         decoded = LETTERS.key(convert_chr(chr)) # retrive the chr
         code << (chr == chr.upcase ? decoded.upcase : decoded)
       else
-         code << chr 
+        code << chr 
       end
     end
     display_message(code)
@@ -40,7 +40,6 @@ class CeaserCypher
 
   def display_message(message)
     message.join('')
-
   end
 
   def convert_chr(chr)
