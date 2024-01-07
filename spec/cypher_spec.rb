@@ -20,5 +20,8 @@ describe CeaserCypher do
     it 'Decodes the given message' do
       expect(cy.decrypt("Mx'w svomrk fixxiv xler ibtigxih")) == "It's working better than expected"
     end
+    it 'Checks if the words loop' do
+      expect(cy.decrypt('ddefg, zbcd')) == 'abcd, wxyz'
+    end
   end
 end
