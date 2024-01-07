@@ -8,20 +8,22 @@ class CeaserCypher
     @key = decode_key
   end
 
-  def encrypt(message = '')
+  def encrypt(message = '', key = @key)
+    @key = key
     code = []
     message.split('').each do |chr|
       if chr.is_a?(String) && chr.downcase.match?(/\A[a-z]\z/)
         decoded = LETTERS.key(convert_chr(chr)) # retrive the chr
         code << (chr == chr.upcase ? decoded.upcase : decoded)
       else
-        code << chr
+         code << chr 
       end
     end
     display_message(code)
   end
 
-  def decrypt(message = '')
+  def decrypt(message = '', key = @key)
+    @key = key
     code = []
     message.split('').each do |chr|
       if chr.is_a?(String) && chr.downcase.match?(/\A[a-z]\z/)
